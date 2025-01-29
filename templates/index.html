@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khelendra Rauniyar | My Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Khelendra Rauniyar</h1>
+            <p>Android Developer | Machine Learning Enthusiast | Tech Explorer</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('skills') }}">Skills</a></li>
+                <li><a href="{{ url_for('projects') }}">Projects</a></li>
+                <li><a href="{{url_for('about')}}">About</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('admin') }}">Admin</a></li>
+                <li><a href="{{url_for('cv')}}">CV</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>
+                Hello! I'm Khelendra Rauniyar, a passionate Android Developer and Machine Learning enthusiast. 
+                I have worked on various projects involving app development, AI integration, and user-centric design. 
+                My key expertise lies in Kotlin, Java, Jetpack Compose, and React Native.
+            </p>
+            <p>
+                Apart from development, I love exploring new technologies and working on innovative solutions. 
+                My journey has been fueled by constant learning and the desire to create meaningful applications that make a difference.
+            </p>
+        </div>
+    </section>
+
+    <section class="vision">
+        <div class="container">
+            <h2>Vision & Goals</h2>
+            <p>
+                My vision is to empower businesses and individuals through cutting-edge technology. 
+                I aim to bridge the gap between technology and people, making it accessible and impactful for everyone.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Khelendra Rauniyar. All rights reserved.</p>
+            <p>
+                Connect with me on: 
+                <a href="https://www.linkedin.com/in/khelendra-rauniyar-4a0424257/" target="_blank">LinkedIn</a> | 
+                <a href="https://github.com/Khelendrarauniyar" target="_blank">GitHub</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

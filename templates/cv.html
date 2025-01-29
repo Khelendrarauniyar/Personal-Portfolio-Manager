@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dynamic CV</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cv.css') }}">
+</head>
+<body>
+    
+<div class="cv-container">
+    <!-- Simple Dropdown for Actions -->
+    <div class="action-dropdown">
+        <!-- Print emoji as a direct link -->
+        <a href="#" id="printCv" class="dropdown-btn" onclick="window.print();">
+            🖨️ 
+        </a>
+    </div>
+    
+
+    <!-- CV Header Section -->
+    <div class="cv-header text-center mb-4">
+        <h1>{{ name }}</h1>
+        <p>{{ address }}</p>
+        <p><strong>Contact:</strong> <a href="mailto:{{ contact_email }}">{{ contact_email }}</a> | {{ contact_phone }}</p>
+    </div>
+
+    <!-- Extra Links Section -->
+    <div class="extra-links text-center mb-4">
+        <a href="https://github.com/Khelendrarauniyar" class="btn btn-dark m-2" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/khelendra-rauniyar-4a0424257/" class="btn btn-info m-2" target="_blank">LinkedIn</a>
+        <!-- Add more links here if needed -->
+    </div>
+
+    <!-- Certificates Section -->
+    <div class="cv-section">
+        <h3 class="section-title">Certificates</h3>
+        {% if certificates %}
+            <ul class="list-unstyled">
+                {% for certificate in certificates %}
+                    <li>
+                        <strong>{{ certificate[0] }}</strong> - {{ certificate[1] }} <br>
+                        Institution: {{ certificate[2] }} <br>
+                        Learnings: {{ certificate[3] }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No certificates added yet.</p>
+        {% endif %}
+    </div>
+
+    <!-- Projects Section -->
+    <div class="cv-section">
+        <h3 class="section-title">Projects</h3>
+        {% if projects %}
+            <ul class="list-unstyled">
+                {% for project in projects %}
+                    <li>
+                        <strong>{{ project[0] }}</strong><br>
+                        Description: {{ project[1] }}<br>
+                        Technologies: {{ project[2] }}<br>
+                        <a href="{{ project[3] }}" target="_blank">View Project</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No projects added yet.</p>
+        {% endif %}
+    </div>
+
+    <!-- Skills Section -->
+    <div class="cv-section">
+        <h3 class="section-title">Skills</h3>
+        {% for skill in certificates %}
+        <li>
+            <strong>{{ skill[1] }}</strong><br>
+        </li>
+        {% endfor %}
+
+    </div>
+
+    <!-- Work Experience Section -->
+    {% if work_experience %}
+        <div class="cv-section">
+            <h3 class="section-title">Work Experience</h3>
+            <ul class="list-unstyled">
+                {% for experience in work_experience %}
+                    <li>
+                        <strong>{{ experience[0] }}</strong> - {{ experience[1] }}<br>
+                        <strong>Role:</strong> {{ experience[2] }}<br>
+                        <strong>Responsibilities:</strong> {{ experience[3] }}<br>
+                        <strong>Duration:</strong> {{ experience[4] }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+</div>
+
+<!-- Include jsPDF for PDF export -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script>
+    // Toggle the dropdown visibility
+    function toggleDropdown() {
+        const dropdownContent = document.querySelector('.dropdown-content');
+        dropdownContent.classList.toggle('show');
+    }
+
+    // Print CV functionality (hide action buttons, extra links during print)
+    document.getElementById('printCv').addEventListener('click', function() {
+        window.print();  // Trigger the browser's print dialog
+    });
+
+    // Save as PDF functionality
+    document.getElementById('downloadCv').addEventListener('click', function() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        // Capture the content of the CV without extra elements like the dropdown
+        const cvContent = document.querySelector('.cv-container').cloneNode(true);
+
+        // Remove unwanted elements for PDF export (dropdown menu, extra links, etc.)
+        const actionDropdown = cvContent.querySelector('.action-dropdown');
+        const extraLinks = cvContent.querySelector('.extra-links');
+        actionDropdown.remove();
+        extraLinks.remove();
+
+        // Use jsPDF's html method to capture the content of the CV container and save it as a PDF
+        doc.html(cvContent, {
+            callback: function (doc) {
+                doc.save('my-cv.pdf');  // Save the generated PDF
+            },
+            margin: [10, 10, 10, 10]
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,277 @@
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 30px;
+}
+
+/* Container */
+.cv-container {
+    background-color: #fff;
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Action Dropdown */
+.action-dropdown {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.action-dropdown .dropdown-toggle {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.action-dropdown .dropdown-menu {
+    min-width: 160px;
+}
+
+.action-dropdown .dropdown-item {
+    color: #007bff;
+}
+
+/* Header Section */
+.cv-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.cv-header h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.cv-header p {
+    font-size: 18px;
+    color: #555;
+}
+
+/* Section Titles */
+.section-title {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    color: #007bff;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
+
+/* CV Sections */
+.cv-section {
+    margin-bottom: 30px;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 15px;
+}
+
+ul li strong {
+    font-weight: bold;
+    color: #333;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Skills and Work Experience Sections */
+.cv-section p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Footer (Optional) */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #777;
+}
+
+/* Extra Links Styling */
+.extra-links {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.extra-links .btn {
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+/* Dropdown Menu Styling */
+.action-dropdown {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.dropdown-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.dropdown-btn:hover {
+    background-color: #0056b3;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show dropdown content when active */
+.show {
+    display: block;
+}
+
+/* Make sure the CV is responsive */
+@media (max-width: 768px) {
+    .cv-container {
+        padding: 20px;
+    }
+
+    .cv-header h1 {
+        font-size: 28px;
+    }
+
+    .cv-header p {
+        font-size: 16px;
+    }
+
+    .action-dropdown {
+        top: 10px;
+        right: 10px;
+    }
+
+    .section-title {
+        font-size: 18px;
+    }
+
+    .extra-links .btn {
+        margin: 10px 5px;
+        font-size: 14px;
+    }
+
+    /* Make sure dropdown button is full width on small screens */
+    .dropdown-toggle {
+        width: 100%;
+    }
+}
+
+/* For even smaller screens (e.g., phones) */
+@media (max-width: 576px) {
+    .cv-header h1 {
+        font-size: 24px;
+    }
+
+    .cv-header p {
+        font-size: 16px;
+    }
+
+    .section-title {
+        font-size: 18px;
+    }
+
+    .extra-links .btn {
+        width: 100%;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+}
+
+/* Print-specific styles */
+@media print {
+    /* Hide dropdown button and extra links during printing */
+    .action-dropdown, .extra-links {
+        display: none;
+    }
+
+    /* Ensure the page has a proper format for printing */
+    body {
+        margin: 0;
+        padding: 20px;
+    }
+
+    .cv-container {
+        padding: 0;
+        font-size: 14px;
+        line-height: 1.5;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .cv-header h1 {
+        font-size: 32px;
+    }
+
+    .cv-header p {
+        font-size: 16px;
+    }
+
+    .section-title {
+        font-size: 20px;
+    }
+
+    .cv-section {
+        margin-bottom: 15px;
+    }
+
+    /* Remove page numbers and other default print styles like URL, time, etc. */
+    @page {
+        margin: 0;
+    }
+
+    body {
+        margin: 0;
+    }
+}

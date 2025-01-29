@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/project.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>My Projects</h1>
+            <p>A showcase of my work, skills, and creativity.</p>
+        </div>
+    </header>
+
+    <section class="project-section">
+        <div class="container">
+            {% for project in projects %}
+            <div class="project-card">
+                <h2>{{ project['name'] }}</h2>
+                <p class="description">{{ project['description'] }}</p>
+                <p><strong>Technologies:</strong> {{ project['technologies'] }}</p>
+                <a href="{{ project['link'] }}" class="project-link" target="_blank">View Project</a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 My Portfolio | All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

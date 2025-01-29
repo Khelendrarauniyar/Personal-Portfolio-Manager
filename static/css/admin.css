@@ -1,0 +1,261 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+}
+
+.header {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+/* Navigation Bar */
+.admin-nav {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.admin-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.admin-nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.admin-nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+.admin-nav ul li a:hover {
+    background: #007bff;
+    border-radius: 5px;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background: #333;
+    color: white;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover {
+    background: #007bff;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #555;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Main Content */
+.content {
+    margin: 2em auto;
+    padding: 2em;
+    max-width: 900px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 1em;
+}
+
+/* Forms */
+form {
+    background: #f9f9f9;
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2em;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button, button, .delete-btn, .edit-btn, form a.btn {
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+}
+
+form button, button {
+    background: #28a745;
+}
+
+form button:hover, button:hover {
+    background: #218838;
+}
+
+.delete-btn {
+    background: #dc3545;
+}
+
+.delete-btn:hover {
+    background: #c82333;
+}
+
+.edit-btn {
+    background: #ffc107;
+}
+
+.edit-btn:hover {
+    background: #e0a800;
+}
+
+form a.btn {
+    background: #007bff;
+}
+
+form a.btn:hover {
+    background: #0056b3;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2em;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 1em;
+    text-align: left;
+}
+
+table th {
+    background: #333;
+    color: white;
+}
+
+table td {
+    background: #f9f9f9;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .admin-nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    form label, form input, form textarea, form button {
+        width: 100%;
+        margin-bottom: 1em;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .content {
+        padding: 1em;
+        margin: 1em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    form label, form input, form textarea, form button, .admin-nav {
+        font-size: 14px;
+    }
+
+    .header h1 {
+        font-size: 1.5em;
+    }
+
+    table th, table td {
+        font-size: 14px;
+        padding: 0.5em;
+    }
+}
+.btn {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Delete Button Styling */
+.btn.delete-btn {
+    background-color: #dc3545;
+}
+
+.btn.delete-btn:hover {
+    background-color: #a71d2a;
+}
+
+/* Edit Button Styling */
+.btn.edit-btn {
+    background-color: #28a745;
+}
+
+.btn.edit-btn:hover {
+    background-color: #1e7e34;
+}
